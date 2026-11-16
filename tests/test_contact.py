@@ -32,3 +32,29 @@ def test_contact_with_all_fields():
     assert contact.category == "cliente"
     assert contact.notes == "Cliente potencial"
     assert contact.id == 10
+import pytest
+
+
+def test_contact_rejects_empty_first_name():
+    with pytest.raises(ValueError):
+        Contact(
+            first_name="",
+            last_name="Garcia",
+            email="ana@email.com"
+        )
+def test_contact_rejects_empty_last_name():
+    with pytest.raises(ValueError):
+        Contact(
+            first_name="Ana",
+            last_name="",
+            email="ana@email.com"
+        )
+
+
+def test_contact_rejects_invalid_email():
+    with pytest.raises(ValueError):
+        Contact(
+            first_name="Ana",
+            last_name="Garcia",
+            email="ana.com"
+        )        
