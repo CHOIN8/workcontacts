@@ -1,0 +1,22 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Pruebas y herramientas
+.pytest_cache/
+.ruff_cache/
+
+# Archivos de configuración privada
+.env
+
+# Bases de datos locales
+*.db
+*.sqlite3
+
+# Distribuciones y compilación
+build/
+dist/
+*.egg-info/
