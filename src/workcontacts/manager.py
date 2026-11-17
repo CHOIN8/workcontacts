@@ -24,5 +24,22 @@ class ContactManager:
             if contact.email == email:
                 self.contacts.remove(contact)
                 return True
-
         return False
+            
+    def update_contact(self, current_email: str, **kwargs):
+        contact = self.find_by_email(current_email)
+
+        if contact is None:
+            return False
+
+        if "email" in kwargs:
+            existing_contact = self.find_by_email(kwargs["email"])
+
+            if existing_contact is not None and existing_contact is not contact:
+                raise ValueError("A contact with this email already exists")
+
+        for field, value in kwargs.items():
+            if hasattr(contact, field):
+                setattr(contact, field, value)
+
+        return True
