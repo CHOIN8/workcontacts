@@ -134,3 +134,68 @@ def test_update_contact_email():
         pass
 
     assert contact1.email == "ana@email.com"
+def test_update_contact_cannot_change_id():
+    manager = ContactManager()
+
+    contact = Contact("Ana", "Garcia", "ana@email.com")
+    manager.add_contact(contact)
+
+    contact.id = 1
+
+    result = manager.update_contact(
+        "ana@email.com",
+        id=99
+    )
+
+    assert result is True
+    assert contact.id == 1
+def test_update_contact_invalid_email():
+    manager = ContactManager()
+
+    contact = Contact("Ana", "Garcia", "ana@email.com")
+    manager.add_contact(contact)
+
+    try:
+        manager.update_contact(
+            "ana@email.com",
+            email="esto-no-es-un-email"
+        )
+        assert False, "Expected ValueError for invalid email"
+    except ValueError:
+        pass
+
+    assert contact.email == "ana@email.com"
+def test_update_contact_invalid_first_name():
+    manager = ContactManager()
+
+    contact = Contact("Ana", "Garcia", "ana@email.com")
+    manager.add_contact(contact)
+
+    try:
+        manager.update_contact(
+            "ana@email.com",
+            first_name=""
+        )
+        assert False, "Expected ValueError for invalid first name"
+    except ValueError:
+        pass
+
+    assert contact.first_name == "Ana"
+
+
+def test_update_contact_invalid_last_name():
+    manager = ContactManager()
+
+    contact = Contact("Ana", "Garcia", "ana@email.com")
+    manager.add_contact(contact)
+
+    try:
+        manager.update_contact(
+            "ana@email.com",
+            last_name=""
+        )
+        assert False, "Expected ValueError for invalid last name"
+    except ValueError:
+        pass
+
+    assert contact.last_name == "Garcia"
