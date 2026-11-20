@@ -95,4 +95,4 @@ Contributions, suggestions, and feedback are welcome.
 
 ## License
 
-No license has been added yet.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
