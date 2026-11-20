@@ -5,10 +5,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "workcontacts"
-version = "0.1.0"
+version = "1.0.0"
 description = "A personal and professional contact manager"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [
+    { name = "CHOIN8" }
+]
+license = "MIT"
 dependencies = [
     "rich==15.0.0"
 ]
