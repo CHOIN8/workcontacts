@@ -1,4 +1,5 @@
 # WorkContacts
+[![Tests](https://github.com/CHOIN8/workcontacts/actions/workflows/tests.yml/badge.svg)](https://github.com/CHOIN8/workcontacts/actions/workflows/tests.yml)
 
 A Python command-line application for managing personal and professional contacts.
 
