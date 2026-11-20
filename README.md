@@ -1,38 +1,35 @@
 # WorkContacts
 
-A command-line contact management application built with Python.
+A Python command-line application for managing personal and professional contacts.
 
-WorkContacts allows users to manage personal and professional contacts through an interactive terminal interface powered by Rich.
+WorkContacts provides an interactive terminal interface to create, search, update, delete, import, and export contacts.
 
 ## Features
 
-- **Add contacts:** Create contacts with personal and professional information.
-- **List contacts:** Display contacts in an organized table.
-- **Search contacts:** Find contacts using their email address.
-- **Update contacts:** Modify existing contact information.
-- **Delete contacts:** Remove contacts from the application.
-- **Category filtering:** Filter contacts by personal or work category.
+- **Contact management:** Add, list, search, update, and delete contacts.
+- **Category filtering:** Organize contacts into personal and professional categories.
 - **Statistics:** View contact statistics and summaries.
 - **JSON persistence:** Automatically save and load contact information.
-- **Backup and restore:** Create backups and restore previously saved contacts.
+- **Backup and restore:** Create backups and restore saved contact data.
 - **CSV export:** Export contacts to CSV files compatible with Excel.
-- **CSV import:** Import contacts from CSV files, avoiding duplicates and rejecting invalid records.
+- **CSV import:** Import contacts from CSV files with duplicate detection and invalid-record handling.
+- **Input validation:** Validate contact information before saving.
 
 ## Technologies
 
 - Python
 - Rich
 - Pytest
-- CSV
 - JSON
-- Git
+- CSV
+- Git and GitHub
 
 ## Installation
 
 Clone the repository:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/CHOIN8/workcontacts.git
 cd workcontacts
 ```
 
@@ -53,7 +50,7 @@ python -m pip install -e .
 
 ## Usage
 
-Launch the application:
+Start the application:
 
 ```powershell
 workcontacts
@@ -68,6 +65,8 @@ Run the complete test suite:
 ```powershell
 python -m pytest
 ```
+
+The project includes automated tests covering contact management, validation, JSON storage, and CSV import/export.
 
 ## Project structure
 
@@ -89,6 +88,10 @@ workcontacts/
 
 ## Project status
 
-Actively developed as a Python learning and software engineering project.
+WorkContacts is an actively developed Python learning and software engineering project.
 
-The project includes automated tests covering contact management, validation, storage and CSV functionality.
+Contributions, suggestions, and feedback are welcome.
+
+## License
+
+No license has been added yet.
