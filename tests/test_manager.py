@@ -199,3 +199,106 @@ def test_update_contact_invalid_last_name():
         pass
 
     assert contact.last_name == "Garcia"
+
+def test_filter_by_category():
+    manager = ContactManager()
+
+    personal = Contact(
+        first_name="Ana",
+        last_name="Garcia",
+        email="ana@email.com",
+        category="personal"
+    )
+
+    work = Contact(
+        first_name="Carlos",
+        last_name="Lopez",
+        email="carlos@email.com",
+        category="work"
+    )
+
+    manager.add_contact(personal)
+    manager.add_contact(work)
+
+    results = manager.filter_by_category("personal")
+
+    assert len(results) == 1
+    assert results[0].first_name == "Ana"
+    assert results[0].category == "personal"
+
+def test_filter_by_category_ignores_case():
+    manager = ContactManager()
+
+    contact = Contact(
+        first_name="Ana",
+        last_name="Garcia",
+        email="ana@email.com",
+        category="personal"
+    )
+
+    manager.add_contact(contact)
+
+    results = manager.filter_by_category("PERSONAL")
+
+    assert len(results) == 1
+    assert results[0] == contact
+
+def test_get_statistics():
+    manager = ContactManager()
+
+    manager.add_contact(Contact(
+        first_name="Ana",
+        last_name="Garcia",
+        email="ana@email.com",
+        category="personal",
+        phone="600123456"
+    ))
+
+    manager.add_contact(Contact(
+        first_name="Carlos",
+        last_name="Lopez",
+        email="carlos@email.com",
+        category="work",
+        phone="600987654"
+    ))
+
+    stats = manager.get_statistics()
+
+    assert stats["total"] == 2
+    assert stats["personal"] == 1
+    assert stats["work"] == 1
+    assert stats["without_phone"] == 0
+
+def test_get_statistics_without_phone():
+    manager = ContactManager()
+
+    contact1 = Contact(
+        first_name="Ana",
+        last_name="Garcia",
+        email="ana@email.com",
+        category="personal",
+        phone="600123456"
+    )
+
+    contact2 = Contact(
+        first_name="Carlos",
+        last_name="Lopez",
+        email="carlos@email.com",
+        category="work"
+    )
+
+    contact3 = Contact(
+        first_name="Pedro",
+        last_name="Alonso",
+        email="pedro@email.com",
+        category="personal"
+    )
+
+    manager.add_contact(contact1)
+    manager.add_contact(contact2)
+    manager.add_contact(contact3)
+
+    stats = manager.get_statistics()
+
+    assert stats["total"] == 3
+    assert stats["without_phone"] == 2

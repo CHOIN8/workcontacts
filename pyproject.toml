@@ -18,5 +18,6 @@ dev = [
 ]
 [tool.hatch.build.targets.wheel]
 packages = ["src/workcontacts"]
-
+[project.scripts]
+workcontacts = "workcontacts.cli:main"
 

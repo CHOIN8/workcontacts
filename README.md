@@ -1,34 +1,94 @@
 # WorkContacts
 
-**WorkContacts** is a personal and professional contact management application built with Python.
+A command-line contact management application built with Python.
 
-The project aims to provide a simple and organized way to manage contacts, including their personal information, professional details, categories, and notes.
+WorkContacts allows users to manage personal and professional contacts through an interactive terminal interface powered by Rich.
 
 ## Features
 
-- Create and manage personal and professional contacts.
-- Store contact information such as names, email addresses, and phone numbers.
-- Organize contacts using categories.
-- Add notes to individual contacts.
-- Store contact data locally using SQLite.
-- Import and export contacts using CSV and JSON.
-- Interactive command-line interface.
+- **Add contacts:** Create contacts with personal and professional information.
+- **List contacts:** Display contacts in an organized table.
+- **Search contacts:** Find contacts using their email address.
+- **Update contacts:** Modify existing contact information.
+- **Delete contacts:** Remove contacts from the application.
+- **Category filtering:** Filter contacts by personal or work category.
+- **Statistics:** View contact statistics and summaries.
+- **JSON persistence:** Automatically save and load contact information.
+- **Backup and restore:** Create backups and restore previously saved contacts.
+- **CSV export:** Export contacts to CSV files compatible with Excel.
+- **CSV import:** Import contacts from CSV files, avoiding duplicates and rejecting invalid records.
 
 ## Technologies
 
 - Python
-- SQLite
 - Rich
 - Pytest
-
-## Project Status
-
-WorkContacts is currently under development. Its architecture, data models, and testing foundation are being built step by step.
+- CSV
+- JSON
+- Git
 
 ## Installation
 
-Installation instructions will be added as the project develops.
+Clone the repository:
 
-## License
+```bash
+git clone YOUR_REPOSITORY_URL
+cd workcontacts
+```
 
-This project will be distributed under an open-source license.
+Create and activate a virtual environment:
+
+**Windows PowerShell**
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+Install the project:
+
+```powershell
+python -m pip install -e .
+```
+
+## Usage
+
+Launch the application:
+
+```powershell
+workcontacts
+```
+
+Follow the interactive menu to manage your contacts.
+
+## Running tests
+
+Run the complete test suite:
+
+```powershell
+python -m pytest
+```
+
+## Project structure
+
+```text
+workcontacts/
+├── src/
+│   └── workcontacts/
+│       ├── models/
+│       ├── utils/
+│       ├── cli.py
+│       ├── manager.py
+│       ├── storage.py
+│       └── export.py
+├── tests/
+├── README.md
+├── pyproject.toml
+└── requirements.txt
+```
+
+## Project status
+
+Actively developed as a Python learning and software engineering project.
+
+The project includes automated tests covering contact management, validation, storage and CSV functionality.

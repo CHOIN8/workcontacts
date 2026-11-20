@@ -12,10 +12,34 @@ class ContactManager:
 
         self.contacts.append(contact)
 
+    def filter_by_category(self, category: str):
+        return [
+            contact for contact in self.contacts
+            if contact.category.lower() == category.lower()
+        ]
+
     def find_by_email(self, email: str):
         for contact in self.contacts:
             if contact.email == email:
                 return contact
+            
+    def get_statistics(self):
+        return {
+            "total": len(self.contacts),
+            "personal": sum(
+                1 for contact in self.contacts
+                if contact.category.lower() == "personal"
+            ),
+            "work": sum(
+                1 for contact in self.contacts
+                if contact.category.lower() == "work"
+            ),
+            "without_phone": sum(
+                1 for contact in self.contacts
+                if not contact.phone
+            )
+        }
+
 
         return None
     ALLOWED_UPDATE_FIELDS = {
